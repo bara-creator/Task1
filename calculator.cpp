@@ -1,12 +1,17 @@
 #include "calculator.h"
 
-int Calculator::Add (double a, double b)
+int Calculator::Add(double a, double b)
 {
-    return a + b + 0.5; // Додаємо 0.5 для врахування помилки округлення
+    return a + b;  // використовуємо поточну версію для Add
 }
 
-int Calculator::Sub (double a, double b)
+int Calculator::Sub(double a, double b)
 {
-    return Add (a, -b);
+    return Add(a, -b);  // залишаємо Sub як є
+}
+
+int Calculator::Mul(double a, double b)
+{
+    return a * b;  // додаємо метод Mul для множення
 }
 
