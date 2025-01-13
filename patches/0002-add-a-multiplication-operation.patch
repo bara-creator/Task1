@@ -1,0 +1,61 @@
+From 66b54f0d8ff6caa83ebed2c5371f10eb4629b7a0 Mon Sep 17 00:00:00 2001
+From: Sergii Piatakov <sergii.piatakov@globallogic.com>
+Date: Thu, 15 Nov 2018 15:43:25 +0200
+Subject: [PATCH 2/2] add a multiplication operation
+
+Add a member-function which performs multiplication of two float point
+digits.
+
+Signed-off-by: Sergii Piatakov <sergii.piatakov@globallogic.com>
+---
+ calculator.cpp | 13 +++++++++----
+ calculator.h   |  8 +++++---
+ 2 files changed, 14 insertions(+), 7 deletions(-)
+
+diff --git a/calculator.cpp b/calculator.cpp
+index 00f4fba..fa90ccf 100644
+--- a/calculator.cpp
++++ b/calculator.cpp
+@@ -1,12 +1,17 @@
+ #include "calculator.h"
+ 
+-int Calculator::Add (double a, double b)
++int Calculator::Add(double a, double b)
+ {
+-    return a + b + 0.5; // Додаємо 0.5 для врахування помилки округлення
++    return a + b;  // використовуємо поточну версію для Add
+ }
+ 
+-int Calculator::Sub (double a, double b)
++int Calculator::Sub(double a, double b)
+ {
+-    return Add (a, -b);
++    return Add(a, -b);  // залишаємо Sub як є
++}
++
++int Calculator::Mul(double a, double b)
++{
++    return a * b;  // додаємо метод Mul для множення
+ }
+ 
+diff --git a/calculator.h b/calculator.h
+index 3740907..e5c9139 100644
+--- a/calculator.h
++++ b/calculator.h
+@@ -4,8 +4,10 @@
+ class Calculator
+ {
+     public:
+-        int Add (double, double);
+-        int Sub (double, double);
++        int Add (double, double); // залишити Add з типом double
++        int Sub (double, double);  // залишити Sub з типом double
++        int Mul (double, double);  // додати метод Mul для множення
+ };
+ 
+-#endif//CALCULATOR_H
++#endif // CALCULATOR_H
++
+-- 
+2.34.1
+
